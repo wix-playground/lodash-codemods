@@ -46,7 +46,8 @@ function testCase(results, expectations, caseIndex) {
 
 run_cmd('cp', ['lazyTestFiles/input.js', 'lazyTestFiles/temp.js'])
     .then(() => run_cmd('node', ['cli', '--from', '0.0.0', '--to', '4.0.0', 'lazyTestFiles/temp.js', '--force']))
-    .then(() => {
+    .then((output) => {
+        console.log(output);
         var results = breakInToCases(readFile('lazyTestFiles/temp.js'));
         var expectations = breakInToCases(readFile('lazyTestFiles/output.js'));
         _(results).keys().union(_.keys(expectations)).forEach(_.partial(testCase, results, expectations, _));
