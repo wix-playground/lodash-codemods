@@ -30,3 +30,17 @@ _([1,2,3]).filter(function(n){return n%2 !== 0}).map(function(n){return n * n;})
 //<case:7>
 _(['a:1', 'b:2', 'c:3']).invokeMap('split', ':').fromPairs().value();
 //<end>
+
+// -------------------- split by -----------------------
+//<case:8>
+_.pickBy({a:1, b:2, c:3, d:4}, function(val){return val%2 === 0;});
+//<end>
+
+//<case:9>
+_.pick({ 'user': 'fred', 'age': 40 }, 'user');
+//<end>
+
+//<case:10>
+function isEven(val){return val%2 === 0;}
+_.pickBy({a:1, b:2, c:3, d:4}, isEven);
+//<end>

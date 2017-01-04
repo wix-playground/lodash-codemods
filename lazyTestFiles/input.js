@@ -5,6 +5,7 @@
 _.forEach([1,2,3], function(a){console.log(a)}, this);
 //<end>
 
+// take off this param also in chains
 //<case:2>
 _([1,2,3]).map(function(n){return n * n;}, this).reduce(function(sum, n) {return sum + n;}, 0);
 //<end>
@@ -30,3 +31,21 @@ _([1,2,3]).filter(function(n){return n%2 !== 0}).map(function(n){return n * n;})
 //<case:7>
 _(['a:1', 'b:2', 'c:3']).invoke('split', ':').zipObject().value();
 //<end>
+
+// -------------------- split by -----------------------
+//<case:8>
+_.pick({a:1, b:2, c:3, d:4}, function(val){return val%2 === 0;});
+//<end>
+
+// should also run for santa/js/plugins/skintest
+//<case:9>
+_.pick({ 'user': 'fred', 'age': 40 }, 'user');
+//<end>
+
+// santaTypeUtils:26 pick with function identifier
+//<case:10>
+function isEven(val){return val%2 === 0;}
+_.pick({a:1, b:2, c:3, d:4}, isEven);
+//<end>
+
+

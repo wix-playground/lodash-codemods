@@ -5,6 +5,8 @@ _.forEach([
         '../santa/packages',
         '../santa/js/plugins/skintest'
     ],function(path){
-        childProcess.spawn('node', ['cli', '--from', '0.0.0', '--to', '4.0.0', path, '--force']);
+        var task = childProcess.spawn('node', ['cli', '--from', '0.0.0', '--to', '4.0.0', path, '--force']);
+        task.stdout.on('data', (data) => {console.log(`stdout: ${data}`);});
+        task.stderr.on('data', (data) => {console.log(`stderr: ${data}`);});
     });
 
