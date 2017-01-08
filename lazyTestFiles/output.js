@@ -44,3 +44,11 @@ _.pick({ 'user': 'fred', 'age': 40 }, 'user');
 function isEven(val){return val%2 === 0;}
 _.pickBy({a:1, b:2, c:3, d:4}, isEven);
 //<end>
+
+//<case:11>
+var thisArg = this;
+function safePick(){
+    return _.assign(_.pick.apply(arguments), _.pickBy.apply(arguments));
+}
+_.pick({a:1, b:2, c:3, d:4}, isEven, thisArg);
+//<end>

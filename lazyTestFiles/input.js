@@ -48,4 +48,12 @@ function isEven(val){return val%2 === 0;}
 _.pick({a:1, b:2, c:3, d:4}, isEven);
 //<end>
 
+//-- bindAll no longer has a default behavior of binding all methods, methods must now be specified
+//_.bindAll(this, _(_.forOwn(Object.getPrototypeOf(this))).pickBy(_.isFunction).keys().value());
+
+
+//<case:11>
+var thisArg = this;
+_.pick({a:1, b:2, c:3, d:4}, isEven, thisArg);
+//<end>
 
