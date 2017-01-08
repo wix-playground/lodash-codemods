@@ -24,7 +24,7 @@ _([1,2,3]).filter(function(n){return n%2 !== 0}).map(function(n){return n * n;})
 //<end>
 
 //<case:6>
-[1,2,3].forEach(function(n){console.log(n);}).value();
+_([1,2,3]).forEach(function(n){console.log(n);}).value();
 //<end>
 
 // -------------------- other stuff --------------------
