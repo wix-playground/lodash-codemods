@@ -57,3 +57,6 @@ var thisArg = this;
 _.pick({a:1, b:2, c:3, d:4}, isEven, thisArg);
 //<end>
 
+//foreach.commit()
+//_.bind to []
+// forown and chain
