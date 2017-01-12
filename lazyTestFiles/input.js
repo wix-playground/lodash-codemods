@@ -60,3 +60,17 @@ _.pick({a:1, b:2, c:3, d:4}, isEven, thisArg);
 //foreach.commit()
 //_.bind to []
 // forown and chain
+
+//<case:12>
+_.bind(a,b);
+//<end>
+
+//<case:13>
+_.bind((function () {
+}), this);
+//<end>
+
+//<case:14>
+setTimeout(_.bind(function () {
+}, this), 10);
+//<end>

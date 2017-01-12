@@ -52,3 +52,17 @@ function safePick(){
 }
 _.pick({a:1, b:2, c:3, d:4}, isEven, thisArg);
 //<end>
+
+//<case:12>
+a.bind(b);
+//<end>
+
+//<case:13>
+(function() {
+}).bind(this);
+//<end>
+
+//<case:14>
+function () {
+}.bind(this);
+//<end>
